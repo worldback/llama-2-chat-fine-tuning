@@ -25,6 +25,9 @@ train_tokens，test_tokens运行 3-data2tokens.ipynb运行得到。
 
 ## 训练
 
+先安装环境:
+pip install -r requirementx.txt
+
 在4块A800-80G上运行:
 
 ```
@@ -51,7 +54,6 @@ torchrun --nproc_per_node=4 train.py \
     --fsdp_transformer_layer_cls_to_wrap 'LlamaDecoderLayer' \
     --tf32 True
 ```
-
 大概需要10h。
 
 ## 测试
