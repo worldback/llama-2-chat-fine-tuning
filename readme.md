@@ -16,10 +16,7 @@
 又进行了一次处理，并将处理后的数据切分为了训练集（train）和测试集(test)。其中train有
 约20w条数据,test有5w条数据。最后只取了10W条数据做训练，最终的数据是small_train_tokens和small_test_tokens。(参考 data2tokens.ipynb)
 
-数据百度云链接:  
-train_and_test:  
-small_train_tokens:  
-small_test_tokens:  
+处理的数据百度云链接:    [data](https://pan.baidu.com/s/1nZdcSNwyImRjKU39u7b3Qw?pwd=2h4d)  
 train和test可以通过 2-train-test-data.ipynb运行得到。  
 train_tokens，test_tokens运行 3-data2tokens.ipynb运行得到。
 
@@ -54,7 +51,7 @@ torchrun --nproc_per_node=4 train.py \
     --fsdp_transformer_layer_cls_to_wrap 'LlamaDecoderLayer' \
     --tf32 True
 ```
-大概需要10h。
+大概需要10h。train.py代码为参考stanford_alpaca的指令微调代码而来，针对聊天数据做了更改。  
 
 ## 测试
 
