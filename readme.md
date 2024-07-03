@@ -18,8 +18,8 @@
 
 数据百度云链接:  
 train_and_test:  
-train_tokens:  
-test_tokens:  
+small_train_tokens:  
+small_test_tokens:  
 train和test可以通过 2-train-test-data.ipynb运行得到。  
 train_tokens，test_tokens运行 3-data2tokens.ipynb运行得到。
 
