@@ -5,3 +5,4 @@ trl==0.9.4
 accelerate==0.31.0
 pandas==2.2.2
 numpy==1.26.4
+wandb==0.17.2
