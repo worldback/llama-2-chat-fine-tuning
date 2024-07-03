@@ -4,25 +4,30 @@
 由于2个数据集加起来有点多，本人资金有限，因此对数据集进行了一些过滤（根据语言，轮数，对话总字数，是否被编辑等条件），并统一会话格式，第一次处理后得到的数据为merge，有大约45W条。
 
 之后为了将数据方便转换为llama 2的聊天微调格式：
-"<s>[INST] <<SYS>>
+
+```
+<s>[INST] <<SYS>>
 {your_system_message}
 <</SYS>>
 
 {user_message_1} [/INST] {model_reply_1}</s><s>[INST] {user_message_2} [/INST]
-"
+```
+
 又进行了一次处理，并将处理后的数据切分为了训练集（train）和测试集(test)。其中train有
 约20w条数据,test有5w条数据。最后只取了10W条数据做训练，最终的数据是small_train_tokens和small_test_tokens。(参考 data2tokens.ipynb)
 
-百度云链接:
-train_and_test:
-train_tokens:
-test_tokens:
-train和test可以通过 2-train-test-data.ipynb运行得到。
+数据百度云链接:  
+train_and_test:  
+train_tokens:  
+test_tokens:  
+train和test可以通过 2-train-test-data.ipynb运行得到。  
 train_tokens，test_tokens运行 3-data2tokens.ipynb运行得到。
 
 ## 训练
 
 在4块A800-80G上运行:
+
+```
 torchrun --nproc_per_node=4 train.py \
     --data_path ./small_train_tokens \
     --eval_data_path ./small_test_tokens \
@@ -45,11 +50,15 @@ torchrun --nproc_per_node=4 train.py \
     --fsdp "full_shard auto_wrap" \
     --fsdp_transformer_layer_cls_to_wrap 'LlamaDecoderLayer' \
     --tf32 True
+```
+
 大概需要10h。
 
 ## 测试
 
+```
 python test.py --path your-fine-tuning-model-path
+```
 
 ## 备注
 
