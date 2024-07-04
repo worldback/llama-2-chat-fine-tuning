@@ -62,5 +62,6 @@ python test.py --path your-fine-tuning-model-path
 ## 备注
 
 聊天数据采用了和llama-2-chat相同的聊天格式。如果是基于llama-2进行聊天微调，是可以采用任何一种聊天的格式的。
+如果是基于llama-2-chat进行微调的，那么采用上述的方式是能够从预训练模型中受益的。  
 
-如果是基于llama-2-chat进行微调的，那么采用上述的方式是能够从预训练模型中受益的。
+参考: https://medium.com/@xuebinbin12/fine-tuning-chat-based-llm-with-multi-turn-conversational-data-part-i-d8c64d01a20d
